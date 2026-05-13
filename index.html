@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>iActReady — Compliance EU AI Act para PYMEs</title>
+<meta name="description" content="Cumple con el EU AI Act, GDPR y DSA sin contratar una consultora. SaaS de compliance autoservicio para PYMEs europeas que usan IA. Disponible verano 2026.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="iActReady — Compliance EU AI Act para PYMEs">
+<meta property="og:description" content="Cumple con el EU AI Act, GDPR y DSA sin contratar una consultora. SaaS autoservicio. Verano 2026.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://iactready.com">
+<meta property="og:locale" content="es_ES">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23000'/%3E%3Ctext x='32' y='44' font-family='ui-sans-serif,system-ui,sans-serif' font-size='30' font-weight='800' fill='%23fff' text-anchor='middle'%3Ei%3C/text%3E%3C/svg%3E">
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  :root {
+    --bg: #0b0b0d;
+    --panel: #131318;
+    --text: #f4f4f5;
+    --muted: #a0a0a8;
+    --accent: #f97316;
+    --accent-bright: #fb923c;
+    --border: rgba(255,255,255,0.08);
+  }
+  html,body { margin:0; padding:0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: 'cv11','ss01','ss03';
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+  .grid-bg {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  }
+  .glow {
+    position: fixed; left: 50%; top: -10%; transform: translateX(-50%);
+    width: 80vw; height: 60vw; max-width: 900px; max-height: 700px;
+    background: radial-gradient(closest-side, rgba(249,115,22,0.18), transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  main {
+    position: relative; z-index: 1;
+    max-width: 920px; margin: 0 auto; padding: 80px 24px;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 14px; letter-spacing: -0.01em;
+    padding: 8px 14px; border: 1px solid var(--border); border-radius: 999px;
+    background: rgba(255,255,255,0.02); color: var(--muted);
+  }
+  .brand .dot {
+    width: 8px; height: 8px; border-radius: 999px; background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.9); }
+  }
+  h1 {
+    margin: 32px 0 16px;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+    background: linear-gradient(180deg, #ffffff 0%, #c4c4c8 100%);
+    background-clip: text; -webkit-background-clip: text;
+    color: transparent; -webkit-text-fill-color: transparent;
+  }
+  h1 .highlight {
+    background: linear-gradient(180deg, var(--accent-bright) 0%, var(--accent) 100%);
+    background-clip: text; -webkit-background-clip: text;
+    color: transparent; -webkit-text-fill-color: transparent;
+  }
+  .lede {
+    font-size: clamp(17px, 2vw, 20px);
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 0 40px;
+  }
+  .lede strong { color: var(--text); font-weight: 600; }
+  .features {
+    display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin: 48px 0;
+  }
+  .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px; transition: border-color 0.2s, transform 0.2s;
+  }
+  .card:hover { border-color: rgba(249,115,22,0.3); transform: translateY(-2px); }
+  .card-icon { font-size: 24px; margin-bottom: 12px; }
+  .card h3 { margin: 0 0 6px; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+  .card p { margin: 0; font-size: 14px; color: var(--muted); }
+  .timeline {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 20px;
+    padding: 28px; margin: 32px 0;
+  }
+  .timeline-title { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 16px; }
+  .deadline {
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    font-size: 18px; line-height: 1.4;
+  }
+  .deadline-date { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; color: var(--accent-bright); }
+  .form {
+    margin: 32px 0;
+    display: flex; gap: 8px; flex-wrap: wrap; max-width: 540px;
+  }
+  .form input {
+    flex: 1; min-width: 240px;
+    background: var(--panel); color: var(--text); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 18px; font-size: 15px;
+    font-family: inherit;
+    outline: none; transition: border-color 0.2s;
+  }
+  .form input:focus { border-color: var(--accent); }
+  .form button {
+    background: var(--accent); color: #1a0f00; border: none;
+    border-radius: 12px; padding: 14px 22px; font-weight: 600; font-size: 15px;
+    cursor: pointer; transition: background 0.2s, transform 0.1s;
+    font-family: inherit;
+  }
+  .form button:hover { background: var(--accent-bright); }
+  .form button:active { transform: scale(0.97); }
+  .form-note { font-size: 13px; color: var(--muted); margin-top: 12px; }
+  footer {
+    position: relative; z-index: 1;
+    padding: 32px 24px; border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--muted);
+    text-align: center;
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="glow"></div>
+
+<main>
+  <span class="brand"><span class="dot"></span> iActReady · llegando verano 2026</span>
+
+  <h1>Cumple con el AI&nbsp;Act <span class="highlight">sin contratar una consultora</span>.</h1>
+
+  <p class="lede">
+    SaaS de compliance autoservicio para PYMEs europeas que usan inteligencia artificial.
+    Te ayudamos a <strong>inventariar tus sistemas IA</strong>, <strong>generar la documentación obligatoria</strong>
+    y <strong>cumplir el Reglamento Europeo de IA</strong> antes del 2 de agosto de 2026.
+  </p>
+
+  <div class="features">
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h3>Inventario IA automático</h3>
+      <p>Wizard de 5 minutos que clasifica tus sistemas IA por nivel de riesgo según el AI Act.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📄</div>
+      <h3>Documentación generada</h3>
+      <p>Política de uso, ficha de transparencia, plan de supervisión humana, evaluación de impacto. Exportable como PDF.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎓</div>
+      <h3>AI Literacy training</h3>
+      <p>Micro-curso obligatorio (Art. 4 AI&nbsp;Act) personalizado por rol, con certificado descargable por empleado.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔔</div>
+      <h3>Alertas regulatorias</h3>
+      <p>Monitorizamos AESIA, AEPD, EDPB y Comisión EU. Solo te avisamos de cambios que te afectan.</p>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-title">Cuenta atrás</div>
+    <div class="deadline">
+      <span class="deadline-date">2 ago 2026</span>
+      <span>Entrada plena del EU AI&nbsp;Act. Sanciones hasta <strong style="color: var(--text)">€35M o 7% facturación</strong>.</span>
+    </div>
+  </div>
+
+  <h2 style="font-size: 22px; font-weight: 700; margin: 48px 0 12px; letter-spacing: -0.02em;">Reserva tu plaza en la beta privada</h2>
+  <p style="color: var(--muted); margin: 0 0 16px; max-width: 560px;">
+    Acceso anticipado, precio early-adopter y soporte 1:1 durante los primeros 3 meses.
+    Cupos limitados a 25 PYMEs.
+  </p>
+
+  <form class="form" action="https://formspree.io/f/placeholder" method="POST" id="waitlist-form">
+    <input type="email" name="email" placeholder="tu@empresa.com" required aria-label="Email">
+    <button type="submit">Unirme a la beta</button>
+  </form>
+  <p class="form-note">Sin spam. Solo te escribimos cuando abramos la beta.</p>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="https://linkedin.com/company/iactready" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://x.com/iactready" target="_blank" rel="noopener">X</a>
+    <a href="https://github.com/iactready" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:hola@iactready.com">hola@iactready.com</a>
+  </div>
+  <div>© 2026 iActReady · Datos alojados en EU · Stack 100% europeo</div>
+</footer>
+
+<script>
+  document.getElementById('waitlist-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = this.querySelector('input[name=email]').value;
+    var btn = this.querySelector('button');
+    btn.textContent = '...';
+    fetch('https://api.iactready.com/waitlist', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email: email})
+    }).catch(function(){}).finally(function(){
+      btn.textContent = 'Gracias ✓';
+      btn.style.background = '#22c55e';
+      btn.disabled = true;
+    });
+  });
+</script>
+</body>
+</html>
