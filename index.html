@@ -197,7 +197,7 @@
     Cupos limitados a 25 PYMEs.
   </p>
 
-  <form class="form" action="https://formspree.io/f/placeholder" method="POST" id="waitlist-form">
+  <form class="form" action="https://app.iactready.com/api/waitlist" method="POST" id="waitlist-form">
     <input type="email" name="email" placeholder="tu@empresa.com" required aria-label="Email">
     <button type="submit">Unirme a la beta</button>
   </form>
@@ -220,7 +220,7 @@
     var email = this.querySelector('input[name=email]').value;
     var btn = this.querySelector('button');
     btn.textContent = '...';
-    fetch('https://api.iactready.com/waitlist', {
+    fetch('https://app.iactready.com/api/waitlist', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({email: email})
